@@ -7,9 +7,26 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body>
+<body class="bg-gray-900">
     {% include "blog/navbar.html" %}
-    <div class="min-h-screen">
+    {% if messages %}
+      {% for message in messages %}
+      <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="rounded-md bg-blue-50 p-2">
+            <div class="flex">
+              <div class="ml-3">
+                <p class="text-sm font-medium text-blue-800">
+                  {{ message }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    <div class="min-h-screen mx-auto">
       {% block content %}
       {% endblock content %}
     </div>
