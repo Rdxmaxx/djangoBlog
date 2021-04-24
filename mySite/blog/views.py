@@ -22,6 +22,3 @@ def about(request):
 
 def login(request):
     return render(request, "blog/login.html")
-
-def test(request):
-    return render(request, "blog/test.html")
